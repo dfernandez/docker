@@ -9,7 +9,7 @@ import (
 func main() {
     http.HandleFunc("/", handler)
     http.HandleFunc("/redis", redis)
-    http.ListenAndServe(":80", nil)
+    http.ListenAndServe(":8000", nil)
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {

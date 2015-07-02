@@ -1,9 +1,16 @@
-goapp:
-    build: .
-    expose: 
+nginx:
+    image: nginx
+    volumes:
+     - nginx:/etc/nginx/conf.d/
+    links:
+     - goapp
+    expose:
      - 80
     ports:
      - "80:80"
+
+goapp:
+    build: .
     links:
      - redis
 

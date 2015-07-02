@@ -7,6 +7,6 @@ EXPOSE 80
 ADD . /code
 
 RUN go get github.com/garyburd/redigo/redis
-RUN go build /code/test.go
+RUN go build /code/ping_redis.go
 
-ENTRYPOINT ./test
+ENTRYPOINT ./ping_redis
