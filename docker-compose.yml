@@ -1,0 +1,11 @@
+goapp:
+    build: .
+    expose: 
+     - 80
+    ports:
+     - "80:80"
+    links:
+     - redis
+
+redis:
+    image: redis
