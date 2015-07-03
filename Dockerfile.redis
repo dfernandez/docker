@@ -1,0 +1,7 @@
+FROM redis:latest
+
+MAINTAINER david fernandez
+
+EXPOSE 6379
+
+ADD . /code

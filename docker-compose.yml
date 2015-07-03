@@ -11,8 +11,18 @@ nginx:
 
 goapp:
     build: .
+    dockerfile: Dockerfile.goapp
     links:
      - redis
+     - dynamodb
 
 redis:
-    image: redis
+    build: .
+    dockerfile: Dockerfile.redis
+    command: redis-server /code/redis.conf
+
+dynamodb:
+    image: tray/dynamodb-local
+    command: -inMemory -port 18000
+    ports:
+     - "18000:18000"
