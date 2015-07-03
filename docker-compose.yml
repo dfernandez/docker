@@ -24,5 +24,3 @@ redis:
 dynamodb:
     image: tray/dynamodb-local
     command: -inMemory -port 18000
-    ports:
-     - "18000:18000"

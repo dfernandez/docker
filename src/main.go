@@ -64,11 +64,12 @@ func testRedis() (bool, error) {
     }
     defer c.Close()
 
-    _, err = c.Do("PING")
+    pong, err := c.Do("PING")
     if err != nil {
         return false, err
 	}
 
+    log.Printf("%v\n", pong)
 	return true, nil
 }
 
@@ -86,8 +87,8 @@ func testDynamodb() (bool, error) {
 
     if err != nil {
         return false, errors.New("DYNAMODB KO")
-    } else {
-        log.Printf("%v\n", tables)
-        return true, nil
     }
+        
+    log.Printf("%v\n", tables)
+    return true, nil
 }
